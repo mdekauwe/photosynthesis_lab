@@ -29,6 +29,10 @@ code
 ```{r}
 michaelis_menten <- function(S, Vmax, Km) {
   # Model is after Leonor Michaelis and Maud Menten
+  
+  # S is the substrate
+  # Vmax is the maximum reaction rate (i.e., when the enzyme is saturated)
+  # Km is the Michaelis constant, the substrate concentration at half Vmax
   V <- Vmax * S / (Km + S)
 
   return (V)
@@ -72,3 +76,20 @@ ggplot(df, aes(x=substrate, y=velocity)) +
 
 ```
 
+## Questions
+
+1. What happens to the reaction rate when the substrate concentration is 
+low vs high?
+2. If we change V<sub>max</sub> how does it affect our plot? Hint: Change 
+V<sub>max</sub> and plot the old line and the new model prediction.
+3. How does changing K<sub>m</sub> affect the affinity for the substrate? Hint: 
+Change K<sub>m</sub> and plot the old line and the new model prediction.
+
+## Summary
+
+By exploring the Michaelis–Menten model, we have learned how enzyme reaction 
+rates depend on substrate concentration and how the key parameters 
+V<sub>max</sub> and K<sub>m</sub> influence the response. Altering 
+V<sub>max</sub> modifies the maximum rate the enzyme can achieve, while 
+adjusting K<sub>m</sub> affects how efficiently the enzyme binds to its 
+substrate.
