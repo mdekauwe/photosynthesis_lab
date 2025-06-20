@@ -1,12 +1,14 @@
-# -------------------------------------------------------------------------
-# constants.R
-#
-# A collection of commonly used constants 
-#
-# Author: Martin De Kauwe
-# Date: 20/6/2025
-# Email: mdekauwe@gmail.com
-# -------------------------------------------------------------------------
+#' Constants used in the photosynthesis model
+#'
+#' A collection of commonly used constants 
+#'
+#' @author Martin De Kauwe
+#' @date 20/06/2025
+#' @name constants
+#' @keywords internal
+#'
+NULL
+
 
 RGAS = 8.314             # Universal gas constant, J mol-1 K-1
 DEG_TO_KELVIN = 273.15   # Conversion from degC to K
