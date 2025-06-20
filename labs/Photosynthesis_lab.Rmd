@@ -41,7 +41,7 @@ and CO<sub>2</sub> **. As a result, this model is central to **every** global cl
 
 ---
 
-### Rubisco-limited assimilation rate (A<sub>c</sub>)
+### Rubisco-limited assimilation rate, \( A_c \) 
 
 This occurs when CO<sub>2</sub> supply to Rubisco limits assimilation and is given by:
 
@@ -68,7 +68,7 @@ The key change is that it has been modified the form to account for **competitiv
 
 ---
 
-### RuBP-regeneration-limited assimilation rate (A<sub>j</sub>)
+### RuBP-regeneration-limited assimilation rate, \( A_j \) 
 
 By contrast, when light (and not Rubisco) is limiting, the assimilation rate 
 depends on how quickly RuBP can be regenerated, given by the rate of electron 
