@@ -1,0 +1,120 @@
+---
+title: "Understanding the Farquhar photosynthesis model"
+author: "Martin De Kauwe"
+output: html_document
+---
+
+# Introduction
+
+
+Add text, ILOs etc
+
+
+## Overview of the Farquhar photosynthesis model
+
+Net photosynthesis (\( A \)) in C<sub>3</sub> plants is controlled by the 
+balance between the uptake of CO<sub>2</sub> through **carboxylation** and the 
+losses due to **photorespiration** and **respiration in the light** :
+
+$$
+A = V_c - 0.5 V_o - R_d
+$$
+Here:
+
+- \( V_c \) is the rate of carboxylation by Rubisco.
+- \( V_o \) is the rate of oxygenation by Rubisco.
+- \( R_d \) is mitochondrial respiration that continues in the light (also called day respiration).
+- The factor \( 0.5 V_o \) reflects the fact that 
+**two oxygenation reactions release one molecule of CO₂**, i.e., 
+0.5 CO<sub>2</sub> lost per oxygenation event.
+
+This biochemical model can be simplified and expressed in terms of measurable 
+quantities (both in the field and the lab). By combining enzyme kinetics and stoichiometry, we can derive expressions for \( A \) as being limited by either: **Rubisco activity** (enzyme capacity, \( A_c \)) or **RuBP regeneration** (electron transport, \( A_j \)). This can then be written as:
+
+\[
+A = \min(A_c, A_j)
+\]
+
+This separation into two limitation rates allows us to model the photosynthetic
+responses under different environmental conditions, such as **light, temperature, 
+and CO<sub>2</sub> **. As a result, this model is central to **every** global climate model. 
+
+---
+
+### Rubisco-limited assimilation rate (A<sub>c</sub>)
+
+This occurs when CO<sub>2</sub> supply to Rubisco limits assimilation and is given by:
+
+\[
+A_c = V_{cmax} \cdot \frac{C_i - \Gamma^*}{C_i + K_c \left(1 + \frac{O_i}{K_o}\right)} - R_d
+\]
+
+where:  
+- \(V_{cmax}\) = maximum rate of carboxylation (Rubisco activity)  
+- \(C_i\) = intercellular CO<sub>2</sub> concentration  
+- \(\Gamma^*\) = CO<sub>2</sub> compensation point (where carboxylation and oxygenation are balanced  
+- \(K_c\), \(K_o\) = Michaelis-Menten constants for CO<sub>2</sub> and O<sub>2</sub>  
+- \(O_i\) = intercellular oxygen concentration  
+- \(R_d\) = day respiration rate
+
+Importantly, you will hopefully notice the similarity to the **Michaelis–Menten** 
+enzyme kinetic equation we began the lab with:
+
+\[
+v = V_{max} \cdot \frac{[S]}{K_m + [S]}
+\]
+
+The key change is that it has been modified the form to account for **competitive inhibition** by O<sub>2</sub>, i.e., the enzyme (Rubisco) works faster with more CO<sub>2</sub>, but less efficiently in the presence of O<sub>2</sub>.
+
+---
+
+### RuBP-regeneration-limited assimilation rate (A<sub>j</sub>)
+
+By contrast, when light (and not Rubisco) is limiting, the assimilation rate 
+depends on how quickly RuBP can be regenerated, given by the rate of electron 
+transport \( J \):
+
+\[
+A_j = J \cdot \frac{C_i - \Gamma^*}{4.5 C_i + 10.5 \Gamma^*} - R_d
+\]
+
+where::  
+- \( J \): the electron transport rate (non-linearly dependent on absorbed 
+light)  
+- The constants 4.5 and 10.5 arise from the **stoichiometry of electron flow** required to regenerate RuBP during photosynthesis and photorespiration, respectively. To fix 1 CO2 molecule, the Calvin cycle needs to regenerate 1 RuBP, which requires 3 ATP and
+2 NADPH. Each NADPH needs 2 electrons, i.e., 2 x 2 which gives us 4 (with a bit 
+extra related to cyclic electron flow, the extra 0.5). Although ATP is also essential, only NADPH is directly linked to linear electron flow, so we ignore it here. Photorespiration is more costly, requiring about 10.5 electrons to process the photorespirationary product back into useable carbon (regenerage RubP)
+
+Although the equation for \(A_j\) has a similar form to the Michaelis–Menten equation, it is not about enzyme kinetics. Instead it is about the availability of energy (ATP and NADPH) to regenerate RuBP.
+
+---
+
+# How do environmental factors affect photosynthesis?
+
+
+
+
+
+
+
+
+Load a the plotting library
+```{r}
+devtools::load_all("..")
+library(ggplot2)
+library(photosynthesis_lab)
+```
+
+### Light
+
+### Temperature
+
+```{r}
+# The model expects the temperature to be in Kelvin so we need to do a conversion
+Tleaf <- seq(0.0, 50.0, 0.5) + DEG_TO_KELVIN
+```
+
+
+### CO<sub>2</sub>
+
+

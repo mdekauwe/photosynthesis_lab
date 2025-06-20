@@ -1,0 +1,17 @@
+---
+title: "Test"
+output: html_document
+date: "20/06/2025"
+---
+
+```{r}
+#install.packages("devtools")
+#install.packages("testthat")
+```
+
+
+```{r}
+devtools::load_all()
+devtools::test()
+```
+

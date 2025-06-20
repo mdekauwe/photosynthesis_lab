@@ -1,0 +1,18 @@
+Package: photosynthesis_lab
+Type: Package
+Title: C3 Photosynthesis Model Following Farquhar et al. (1980)
+Version: 1.0
+Authors@R:
+    person("Martin", "De Kauwe", email = "mdekauwe@gmail.com", role = c("aut", "cre"))
+Description:
+    Implements a leaf-level C3 photosynthesis model based on Farquhar, von Caemmerer & Berry (1980),
+    including temperature- and light-dependent limitations, and stomatal conductance models following Medlyn et al. (2011).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: stats
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

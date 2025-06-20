@@ -9,6 +9,7 @@
 #' noted.
 #' 
 #' @author Martin De Kauwe
+#' @email mdekauwe@gmail.com
 #' @date 20/06/2025
 #' @name parameters
 NULL

@@ -4,6 +4,7 @@
 #' like approximate equality checks and root solving.
 #'
 #' @author Martin De Kauwe
+#' @email mdekauwe@gmail.com
 #' @date 20/06/2025
 #' @name utils
 #' @keywords internal
