@@ -1,0 +1,74 @@
+---
+title: "Understanding Michaelis–Menten Kinetics"
+author: "Martin De Kauwe"
+output: html_document
+---
+
+# Introduction
+
+Michaelis–Menten kinetics describes how the rate of an enzyme-catalyzed reaction 
+depends on substrate concentration, capturing this relationship with two key 
+parameters: the maximum reaction rate (V<sub>max</sub>) and the substrate 
+concentration at which the reaction rate is half of V<sub>max</sub> 
+(K<sub>m</sub>). This framework provides a useful analogy for understanding how 
+Rubisco activity is influenced by CO<sub>2</sub> availability in C<sub>3</sub>
+photosynthesis.
+
+```{r}
+library(ggplot2)
+```
+
+We are going to start by describing our model as a function. A model is a 
+simplified mathematical description of a process - in this case, how an 
+enzyme's reaction rate depends on substrate concentration. A function in R is a 
+reusable block of code that takes inputs (called arguments), performs a 
+calculation, and returns an output. Writing the model as a function makes it 
+easy to apply the same formula to many different values or to reuse in other 
+code
+
+```{r}
+michaelis_menten <- function(S, Vmax, Km) {
+  # Model is after Leonor Michaelis and Maud Menten
+  V <- Vmax * S / (Km + S)
+
+  return (V)
+}
+```
+
+Let's now run our model...
+```{r}
+
+# Parameters 
+Vmax <- 1.5   # μmol/min/mg enzyme
+Km <- 0.05    # mM 
+
+# Create an array of substrate concentrations (S, mM)
+substrate_conc <- seq(0, 0.5, by=0.01)
+
+# check what this looks like
+print(substrate_conc)
+
+# Compute reaction velocities
+velocities <- michaelis_menten(substrate_conc, Vmax, Km)
+
+# Create a data frame to make it easy to store the data and plot
+df <- data.frame(
+  substrate = substrate_conc,
+  velocity = velocities
+)
+
+```
+
+And make a plot to see how our model works
+```{r}
+ggplot(df, aes(x=substrate, y=velocity)) +
+  geom_line(color = "seagreen", linewidth=1.5) +
+  labs(
+    x = "Substrate concentration [S] (mM)",
+    y = "Reaction rate, V (μmol/min/mg enzyme)"
+  ) +
+  theme_classic()
+  
+
+```
+
