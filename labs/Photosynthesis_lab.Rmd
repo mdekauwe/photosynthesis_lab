@@ -107,6 +107,39 @@ library(photosynthesis_lab)
 
 ### Light
 
+Let's see how increasing light availability affects our photosynthetic predictions.
+
+We need to start by generating a sequence (or an array) or increasing light, which we will call PAR (photosynthetically active radiation).
+```{r}
+PAR <- seq(0, 2000, by=10) 
+Tleaf <- 20 + DEG_TO_KELVIN # a nice sunny day
+Cs <- 420 # current CO2 concentration
+vpd <- 1.5 # effectively describes the humidity of the atmosphere
+```
+
+We are now going to run our photosynthesis model. This involves passing the weather data to the function, similar to what we did with the Michaelis-Menten function. Here "p" is a collection of parameters (a list) that the model depends on, for example varibles that might describe the difference between and Oak tree and a Pine treee.
+
+```{r}
+out <- calc_photosynthesis(p, Tleaf, PAR, Cs, vpd, peaked_Vcmax=TRUE,
+                           peaked_Jmax=TRUE)
+df <- data.frame(PAR, out$An, out$Ac, out$Aj)
+
+ggplot(df, aes(PAR)) +
+  geom_line(aes(y=out.An)) +
+  ylab(expression("Photosynthesis" ~ (mu * mol ~  m^{-2}  ~  s^{-1}))) +
+  xlab(expression("PAR" ~ (mu * mol ~  m^{-2}  ~  s^{-1}))) +
+  #theme_classic(base_size=16) +
+  theme_classic() +
+  theme(legend.title=element_blank()) +
+  scale_colour_brewer(palette = "Set2")
+```
+### Questions
+
+1. At what PAR value does photosynthesis begin to saturate and why?
+2. How might you predict this saturation point to change species or leaf types (sunlit vs shaded)?
+
+
+
 ### Temperature
 
 ```{r}

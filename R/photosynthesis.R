@@ -55,7 +55,8 @@ calc_photosynthesis <-function(p, Tleaf, PAR, Cs, vpd, peaked_Vcmax=TRUE,
   max_len <- max(length(PAR), length(Cs), 1)
   PAR <- rep_len(PAR, max_len)
   Cs <- rep_len(Cs, max_len)
-
+  Tleaf <- rep_len(Tleaf, max_len)
+  
   # calculate temp dependancies of Michaelis-Menten constants for CO2, O2
   Km <- calc_michaelis_menten_constants(p, Tleaf)
 
