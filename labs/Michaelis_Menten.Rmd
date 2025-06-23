@@ -12,7 +12,7 @@ parameters: the maximum reaction rate (V<sub>max</sub>) and the substrate
 concentration at which the reaction rate is half of V<sub>max</sub> 
 (K<sub>m</sub>). This framework provides a useful analogy for understanding how 
 Rubisco activity is influenced by CO<sub>2</sub> availability in C<sub>3</sub>
-photosynthesis.
+
 
 ```{r}
 library(ggplot2)
